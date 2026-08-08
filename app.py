@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
+import os
+
+if not os.path.exists("database/employee.db"):
+    os.system("python init_db.py")
 
 app = Flask(__name__)
 
