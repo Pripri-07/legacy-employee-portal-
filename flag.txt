@@ -1,0 +1,1 @@
+FLAG{legacy_portal_sqli_success}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <h2>ACME Technologies</h2>
+
+        <p>Legacy Employee Portal</p>
+
+    </div>
+
+    <div class="page-title">
+
+        Employee Dashboard
+
+    </div>
+
+    <div class="user-info">
+
+        👤 {{ username }}
+
+    </div>
+
+
+</header>
+
+<div class="dashboard">
+
+    <div class="card">
+
+        <h2>Employee Information</h2>
+
+        <table>
+
+            <tr>
+                <td>Employee ID</td>
+                <td>EMP-1024</td>
+            </tr>
+
+            <tr>
+                <td>Department</td>
+                <td>Finance</td>
+            </tr>
+
+            <tr>
+                <td>Role</td>
+                <td>Employee</td>
+            </tr>
+
+            <tr>
+                <td>Office</td>
+                <td>New York</td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td>{{ username }}@acme.local</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Company Announcements</h2>
+
+        <ul>
+
+            <li>Payroll migration completed successfully.</li>
+
+            <li>Legacy authentication system scheduled for retirement.</li>
+
+            <li>Employees must update contact information before July.</li>
+
+            <li>Annual cybersecurity awareness training opens next week.</li>
+
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Quick Links</h2>
+
+        <ul>
+
+            <li>Employee Directory</li>
+
+            <li>Leave Management</li>
+
+            <li>IT Helpdesk</li>
+
+            <li>Benefits Portal</li>
+
+            <li>Travel Requests</li>
+
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>System Information</h2>
+
+        <table>
+
+            <tr>
+                <td>Portal Version</td>
+                <td>2.3.1</td>
+            </tr>
+
+            <tr>
+                <td>Status</td>
+                <td>
+                    <span class="badge green">
+                        Operational
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Last Login</td>
+                <td>Today</td>
+            </tr>
+
+            <tr>
+                <td>Authentication</td>
+                <td>
+                    <span class="badge yellow">
+                        Legacy
+                    </span>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class="logout">
+
+    <a href="/logout">
+        <button>Logout</button>
+    </a>
+
+</div>
+
+<footer>
+
+    © 2014 ACME Technologies · Legacy Employee Portal v2.3.1
+
+</footer>
+
+</body>
+</html>

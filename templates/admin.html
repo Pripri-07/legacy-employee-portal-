@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header class="navbar admin-theme">
+
+    <div class="brand">
+
+        <h2> ACME Technologies</h2>
+
+        <p>Infrastructure Administration Console</p>
+
+    </div>
+
+    <div class="page-title">
+
+        Administrator Console
+
+    </div>
+
+    <div class="user-info">
+
+        🔐 {{ username }}
+
+    </div>
+
+</header>
+
+<div class="admin-container">
+
+    <h1>System Overview</h1>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Employee Records</h3>
+            <p>73</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Servers</h3>
+            <p>5</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Active Sessions</h3>
+            <p>18</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>System Status</h3>
+            <p>
+
+                <span class="badge green">
+
+                    ONLINE
+
+                </span>
+
+            </p>
+        </div>
+
+    </div>
+
+    <div class="admin-grid">
+
+        <div class="admin-card">
+
+            <h2>Infrastructure Status</h2>
+
+            <table>
+
+                <tr>
+                    <td>Authentication Service</td>
+                   <td>
+
+                        <span class="badge green">
+
+                            Operational
+
+                        </span>
+
+                    </td>        
+                </tr>
+
+                <tr>
+                    <td>Employee Database</td>
+                    <td class="online">Connected</td>
+                </tr>
+
+                <tr>
+                    <td>Backup Service</td>
+                    <td class="online">Completed</td>
+                </tr>
+
+                <tr>
+                    <td>Email Gateway</td>
+                    <td class="online">Running</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="admin-card">
+
+            <h2>Recent Administrative Activity</h2>
+
+            <ul>
+
+                <li>09:14 — john authenticated successfully</li>
+
+                <li>09:20 — Employee directory synchronized</li>
+
+                <li>09:36 — Payroll service restarted</li>
+
+                <li>10:01 — Scheduled backup completed</li>
+
+                <li>10:18 — Authentication migration postponed</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="flag-card">
+
+        <h2>Administrator Notes</h2>
+
+        <p>
+            Migration to the new authentication platform has been delayed.
+        </p>
+
+        <p>
+            Temporary migration identifier:
+        </p>
+
+        <div class="flag-box">
+
+            {{ flag }}
+
+        </div>
+
+        <p>
+            <strong>Confidential:</strong> Do not distribute outside the IT department.
+        </p>
+
+    </div>
+
+    <div class="logout">
+
+        <a href="/logout">
+            <button>Logout</button>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+
+    ACME Technologies • Infrastructure Console • Version 2.3.1
+
+</footer>
+
+</body>
+</html>

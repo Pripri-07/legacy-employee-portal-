@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Employee Portal</title>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+            <div class="portal-header">
+                <h1>ACME Technologies</h1>
+                <p>Legacy Employee Portal</p>
+                <span>Version 2.3.1</span>
+            </div>
+
+      
+        <div class="login-content">
+
+            <h2>Employee Authentication</h2>
+
+            {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+            <form method="POST" action="/login">
+
+                <label>Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter username"
+                    required>
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    required>
+
+                <button type="submit">
+                    Sign In
+                </button>
+
+            </form>
+
+         </div>
+
+        <div class="portal-footer">
+
+            <p><strong>Internal Use Only</strong></p>
+
+            <small>
+                Unauthorized access is prohibited.
+            </small>
+
+            <br><br>
+
+            <small>
+                © 2014 ACME Technologies
+            </small>
+
+        </div>
+
+    </div>
+</body>
+</html>
