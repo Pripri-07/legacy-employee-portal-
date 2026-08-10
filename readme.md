@@ -1,68 +1,68 @@
 # Legacy Employee Portal
 
-## Challenge Information
+A beginner-friendly SQL Injection CTF challenge inspired by classic picoCTF-style web exploitation challenges.
 
-| Field          | Value                  |
-| -------------- | ---------------------- |
-| Challenge Name | Legacy Employee Portal |
-| Category       | Web Exploitation       |
-| Difficulty     | Easy                   |
-| Author         | Priyanshi              |
-| Platform       | Flask + SQLite         |
+## Challenge Description
 
----
+The IT department recently migrated to a new authentication system, but one forgotten employee portal was left running.
 
-## Description
-
-The IT department recently migrated to a new authentication system, but one forgotten web application was left running.
-
-The developers were more focused on functionality than security, and they believed only employees knew about this portal.
+The developers believed only employees knew about the portal and focused more on functionality than security.
 
 Can you prove them wrong?
 
-Gain access to the administrator dashboard and capture the flag.
+Your goal is to gain administrator access and retrieve the flag hidden in the admin dashboard.
+
+**Category:** Web Exploitation
+
+**Difficulty:** Easy
 
 ---
 
-## Objective
+## Learning Objectives
 
-Your goal is to:
+This challenge teaches:
 
-1. Analyze the login functionality.
-2. Gain administrator access.
-3. Capture the flag hidden within the admin dashboard.
-
----
-
-## Skills Tested
-
-* Web Application Enumeration
-* Authentication Bypass
-* SQL Injection
-* Basic Session Management
-* SQLite Query Analysis
+- SQL Injection fundamentals
+- Authentication bypass attacks
+- Login form exploitation
+- SQL comments and query manipulation
+- Understanding insecure database queries
 
 ---
 
+## Vulnerability
 
+The application constructs SQL queries using unsanitized user input.
 
+Example:
 
-
----
-
-### Build and Run
-
-
-
-The application will be available at:
-
-```text
-http://localhost:5000
+```sql
+SELECT * FROM users
+WHERE username='<user_input>'
+AND password='<password_input>'
 ```
 
+Because user input is directly concatenated into the query, an attacker can manipulate the SQL statement and bypass authentication.
+
 ---
 
+## Challenge Goal
 
+1. Access the login portal.
+2. Bypass authentication using SQL Injection.
+3. Reach the administrator dashboard.
+4. Capture the flag.
+
+---
+
+## Tech Stack
+
+- Python
+- Flask
+- SQLite
+- HTML/CSS
+
+---
 
 ## Project Structure
 
@@ -73,57 +73,170 @@ legacy-employee-portal/
 ├── init_db.py
 ├── flag.txt
 ├── requirements.txt
-|
-|
-├── .gitignore
-├
 │
 ├── database/
-│   └── init.sql
+│   ├── init.sql
+│   └── employee.db
+│
+├── static/
+│   └── css/
+│       └── style.css
 │
 ├── templates/
 │   ├── login.html
 │   ├── dashboard.html
-│   └── admin.html
+│   ├── admin.html
+│   └── error.html
 │
-└── static/
-    └── css/
-        └── style.css
+└── README.md
+```
+
+---
+
+## Local Setup
+
+### Clone the Repository
+
+```bash
+git clone <repository-url>
+cd legacy-employee-portal
+```
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+#### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+#### Linux/macOS
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Initialize Database
+
+```bash
+python init_db.py
+```
+
+### Run Application
+
+```bash
+python app.py
+```
+
+Application will be available at:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## Railway Deployment
+
+1. Push the repository to GitHub.
+2. Create a new Railway Project.
+3. Select **Deploy from GitHub Repo**.
+4. Choose this repository.
+5. Set the start command:
+
+```bash
+gunicorn app:app
+```
+
+6. Wait for deployment to complete.
+7. Go to **Settings → Networking**.
+8. Click **Generate Domain**.
+9. Open the generated Railway URL.
+
+---
+
+## Default Credentials
+
+### Employee Account
+
+```text
+Username: john
+Password: john123
+```
+
+### Administrator Account
+
+```text
+Username: admin
+Password: ADMIN
 ```
 
 ---
 
 ## Flag Location
 
-The flag is accessible only after successfully obtaining administrator privileges.
+The flag is displayed on the administrator dashboard after successful authentication.
 
 ---
 
+## Intended Solution
 
+The intended solution is to identify and exploit the SQL Injection vulnerability in the login form to gain administrator access.
 
+Example payloads:
 
+```sql
+' OR 1=1 --
+```
+
+```sql
+admin' --
+```
+
+```sql
+' OR role='admin' --
+```
 
 ---
 
-## Intended Learning Outcomes
+## Example Challenge Description (CTFd / picoCTF Style)
 
-Participants should learn:
+### Legacy Employee Portal
 
-* Why dynamic SQL queries are dangerous
-* How SQL Injection can bypass authentication
-* The importance of parameterized queries
-* Basic web application security concepts
+The IT department recently migrated to a new authentication system, but one forgotten employee portal was left online.
+
+Rumor has it the developers were more concerned with functionality than security.
+
+Can you find a way into the administrator dashboard and recover the flag?
+
+**Category:** Web Exploitation
+
+**Difficulty:** Easy
+
+**Hint:** Sometimes the fastest way through a login form isn't knowing the password.
 
 ---
 
 ## Disclaimer
 
-This application intentionally contains security vulnerabilities for educational and training purposes only.
+This application intentionally contains security vulnerabilities for educational and CTF purposes.
 
-Do not deploy this application in a production environment.
+Do not deploy this application in production environments.
 
 ---
 
-## License
+## Author
 
-Educational Use Only
+Created for cybersecurity training, workshops, and Capture The Flag (CTF) competitions.
