@@ -2,8 +2,10 @@ from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import os
 
-if not os.path.exists("database/employee.db"):
-    os.system("python init_db.py")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+DATABASE = os.path.join(BASE_DIR, "database", "employee.db")
+FLAG_FILE = os.path.join(BASE_DIR, "flag.txt")
 
 app = Flask(__name__)
 
@@ -86,7 +88,7 @@ def admin():
     if session["role"] != "admin":
         return render_template("error.html"), 403
 
-    with open("flag.txt", "r") as f:
+    with open(FLAG_FILE, "r") as f:
         flag = f.read().strip()
 
     return render_template(
@@ -109,5 +111,5 @@ if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
         port=5000,
-        debug=True
+        debug=False
     )
